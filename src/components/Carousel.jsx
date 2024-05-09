@@ -16,7 +16,7 @@ import bgimg3 from '../assets/b3.jpeg'
 
 export default function Carousel() {
   return (
-    <div className='h-screen'>
+    <div className='md:h-screen'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -30,16 +30,16 @@ export default function Carousel() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className='mySwiper h-[800px]'
+        className='mySwiper md:h-[800px]'
       >
         <SwiperSlide className='object-cover'>
             <img src={bgimg1} alt="" />
         </SwiperSlide>
         <SwiperSlide className=''>
-        <img className='object-cover' src={bgimg2} alt="" />
+        <img className='object-cover ' src={bgimg2} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-        <img className='h-full w-full' src={bgimg3} alt="" />
+        <img className='h-full md:w-full' src={bgimg3} alt="" />
         </SwiperSlide>
       </Swiper>
     </div>
