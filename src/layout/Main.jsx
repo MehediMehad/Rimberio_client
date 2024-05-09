@@ -4,7 +4,10 @@ import NavBar from "../pages/Shared/NavBar";
 const Main = () => {
     return (
         <div>
+            <div className=" ">
+
             <NavBar></NavBar>
+            </div>
             <Outlet></Outlet>
         </div>
     );
