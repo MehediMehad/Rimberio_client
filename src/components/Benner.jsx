@@ -1,17 +1,33 @@
-import bgimg1 from '../assets/banner-bg.png'
+import bgimg1 from '../assets/shoping.jpg'
 
 const Benner = () => {
     return (
-<div className="hero z-40 max-w-[1460px] mx-auto " style={{backgroundImage: `url(${bgimg1})`}}>
-  <div className="hero"></div>
-  <div className="hero-content text-center text-neutral-content">
-    <div className="max-w-md">
-      <h1 className="mb-5 text-4xl font-bold">GET START</h1>
-      <p className="mb-5 text-4xl">YOUR FAVRIOT SHOPING</p>
-      <button className="btn w-64 bg-[#2b2a29] font-bold text-white">BUY NOW</button>
+<section className="bg-white dark:bg-gray-900 absolute -bottom-36">
+    <div className=" px-6 py-10 mx-auto">
+        <main className="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
+            <div className="absolute w-full -z-10 md:h-96 rounded-2xl bg-my-background object-cover" >
+
+            </div>
+            
+            <div className="w-full p-6 bg-blue-600 md:flex md:items-center rounded-2xl md:bg-transparent md:p-0 lg:px-12 md:justify-evenly">
+                <img className="h-24 w-24 md:mx-6 rounded-full object-cover shadow-md md:h-[32rem] md:w-80 lg:h-[36rem] lg:w-[26rem] md:rounded-2xl" src={bgimg1} alt="client photo" />
+                
+                <div className="mt-2 md:mx-6">
+                    <div>
+                        <p className="text-xl font-medium tracking-tight text-white">Unlock Your Style </p>
+                        <p className="text-blue-200 ">Explore Fashion's Latest Trends & Expert Advice!</p>
+                    </div>
+
+                    <p className="mt-4 text-lg leading-relaxed text-white md:text-xl"> Welcome to our fashion haven, where every click unveils a world of style, trends, and insider tips! Dive into a realm where your wardrobe dreams come to life with the latest fashion buzz and must-have essentials.</p>
+                    
+                    <div className="flex items-center justify-between mt-6 md:justify-start">
+                    <button className="btn btn-outline bg-secondary border-blue-600 font-bold text-white hover:bg-[#f70ee4]">Secondary</button>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-  </div>
-</div>
+</section>
     );
 };
 

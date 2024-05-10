@@ -6,7 +6,10 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily:{
+      backgroundImage: {
+        'my-background': "url('./src/assets/bag2.jpg')",
+      },
+        fontFamily:{
         lato:"'Lato', sans-serif"
       }
     },
@@ -14,5 +17,9 @@ export default {
   plugins: [
     require('daisyui'),
   ],
+  daisyui: {
+    themes: ["light", "synthwave"],
+  },
+
 }
 

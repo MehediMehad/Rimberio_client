@@ -11,7 +11,8 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 
 import bgimg1 from '../assets/b1.jpg'
 import bgimg2 from '../assets/b2.jpg'
-import bgimg3 from '../assets/b3.jpeg'
+import bgimg3 from '../assets/b3.jpg'
+import bgimg4 from '../assets/b4.jpg'
 
 
 export default function Carousel() {
@@ -39,7 +40,8 @@ export default function Carousel() {
         <img className='object-cover ' src={bgimg2} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-        <img className='h-full md:w-full' src={bgimg3} alt="" />
+        {/* <img className=' object-cover ' src={bgimg3} alt="" /> */}
+        <img className=' object-cover ' src={bgimg4} alt="" />
         </SwiperSlide>
       </Swiper>
     </div>
