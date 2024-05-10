@@ -24,13 +24,13 @@ const AuthProvider = ({children}) => {
     }
      
      
-     
-     
      // google login
      const googleLogIn = () =>{
          setLoading(true)
          return signInWithPopup(auth, googleProvider)
         }
+
+    // logout
         
         //  observer 
     // observer
