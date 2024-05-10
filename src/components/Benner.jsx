@@ -15,7 +15,7 @@ const Benner = () => {
                 <div className="mt-2 md:mx-6">
                     <div>
                         <p className="text-xl font-medium tracking-tight text-white">Unlock Your Style </p>
-                        <p className="text-blue-200 ">Explore Fashion's Latest Trends & Expert Advice!</p>
+                        <p className="text-blue-200 ">Explore Fashions Latest Trends & Expert Advice!</p>
                     </div>
 
                     <p className="mt-4 text-lg leading-relaxed text-white md:text-xl"> Welcome to our fashion haven, where every click unveils a world of style, trends, and insider tips! Dive into a realm where your wardrobe dreams come to life with the latest fashion buzz and must-have essentials.</p>

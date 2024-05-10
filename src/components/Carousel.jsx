@@ -11,7 +11,6 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 
 import bgimg1 from '../assets/b1.jpg'
 import bgimg2 from '../assets/b2.jpg'
-import bgimg3 from '../assets/b3.jpg'
 import bgimg4 from '../assets/b4.jpg'
 
 
@@ -23,7 +22,7 @@ export default function Carousel() {
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
         pagination={{
