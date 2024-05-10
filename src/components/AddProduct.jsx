@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 
@@ -50,6 +51,14 @@ const AddProduct = () => {
     .then(res => res.json())
     .then(data => {
         console.log(data);
+        if (data.insertedId) {
+            Swal.fire({
+                title: 'Success!',
+                text: 'Added Data Database',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              })
+        }
     })
 }
 
@@ -63,14 +72,14 @@ const AddProduct = () => {
                         <label className="">
                             <div className="label">
                                 <span className="label-text text-lg font-semibold">Product Name</span>                        </div>
-                            <input type="text" name="name" placeholder="Product Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" required placeholder="Product Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="">
                             <div className="label">
                                 <span className="label-text text-lg font-semibold">Brand Name</span>                        </div>
-                            <input type="text" name="brand" placeholder="Brand Name" className="input input-bordered w-full" />
+                            <input type="text" name="brand" required placeholder="Brand Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -80,14 +89,14 @@ const AddProduct = () => {
                         <label className="">
                             <div className="label">
                                 <span className="label-text text-lg font-semibold">Product Title</span>                        </div>
-                            <input type="text" name="productTitle" placeholder="Product Title" className="input input-bordered w-full" />
+                            <input type="text" name="productTitle" required placeholder="Product Title" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="">
                             <div className="label">
                                 <span className="label-text text-lg font-semibold">Reason</span>                        </div>
-                            <input type="text" name="reason" placeholder="Reason" className="input input-bordered w-full" />
+                            <input type="text" name="reason" required placeholder="Reason" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -108,7 +117,7 @@ const AddProduct = () => {
                             </div>
                             {/* <div className="label">
                                 <span className="label-text text-lg font-semibold">Category</span>                        </div>
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" /> */}
+                            <input type="text" name="category" required placeholder="Category" className="input input-bordered w-full" /> */}
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
@@ -131,7 +140,7 @@ const AddProduct = () => {
                         <label className="">
                             <div className="label">
                                 <span className="label-text text-lg font-semibold">Photo Url</span>                        </div>
-                            <input type="text" name="photo" placeholder="Photo Url" className="input input-bordered w-full" />
+                            <input type="text" name="photo" required placeholder="Photo Url" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
