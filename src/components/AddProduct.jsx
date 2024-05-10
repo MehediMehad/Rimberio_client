@@ -1,13 +1,62 @@
+import { useContext, useState } from "react";
+import DatePicker from "react-datepicker";
 
-
+import "react-datepicker/dist/react-datepicker.css";
+import { AuthContext } from "../providers/AuthProvider";
+// import { data } from "autoprefixer";
 const AddProduct = () => {
-     
+    const { user } = useContext(AuthContext)
+    console.log(user);
+    const [publisDate, setPublisDate] = useState()
+  
+    const handleAddProduct = e => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const brand = form.brand.value;
+        const productTitle = form.productTitle.value;
+        const reason = form.reason.value;
+        const category = form.category.value;
+        // const date = form.date.value;
+        const photo = form.photo.value;
 
+        const productInfo = { 
+            name,
+            brand,
+            productTitle,
+            reason,
+            category,
+            publisDate,
+            photo,
+            addedUser:
+            {
+                email: user?.email,
+                addedUserName: user?.displayName,
+                addedUserPhoto: user?.photoURL
+            }
+            
+        }
+        console.log(productInfo ,'oooooooooooo');
+
+    
+    // sand data
+    fetch('http://localhost:5000/produces', {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(productInfo)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+}
 
     return (
         <div className="bg-[#F4F3F0] p-24">
             <h1 className="text-3xl font-bold">Add Product</h1>
-            <form >
+            <form onSubmit={handleAddProduct}  >
                 {/* name & brand */}
                 <div className="md:flex mb-8 gap-x-5">
                     <div className="form-control md:w-1/2">
@@ -46,16 +95,33 @@ const AddProduct = () => {
                 <div className="md:flex mb-8 gap-x-5">
                     <div className="form-control md:w-1/2">
                         <label className="">
-                            <div className="label">
+                            <div className="form-control mt-12">
+                            <select
+                                name='category'
+                                id='category'
+                                className='p-3 rounded-md'
+                            >
+                                <option value='Men'>Men</option>
+                                <option value='Womans'>Womans</option>
+                                <option value='Kids'>Kids</option>
+                            </select>
+                            </div>
+                            {/* <div className="label">
                                 <span className="label-text text-lg font-semibold">Category</span>                        </div>
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
+                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" /> */}
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="">
                             <div className="label">
                                 <span className="label-text text-lg font-semibold">Date</span>                        </div>
-                            <input type="text" name="date" placeholder="Date" className="input input-bordered w-full" />
+                            <div className="form-control ">
+                                <DatePicker
+                                    className="border p-3 w-full rounded-md"
+                                    selected={publisDate}
+                                    onChange={date => setPublisDate(date)}
+                                />
+                            </div>
                         </label>
                     </div>
                 </div>
