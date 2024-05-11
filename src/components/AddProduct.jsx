@@ -34,7 +34,8 @@ const AddProduct = () => {
             {
                 email: user?.email,
                 addedUserName: user?.displayName,
-                addedUserPhoto: user?.photoURL
+                addedUserPhoto: user?.photoURL,
+                currentDate: new Date().toISOString(),
             }
             
         }
