@@ -14,7 +14,7 @@ const NavBar = () => {
     <NavLink to='/queries' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Queries</NavLink>
     <NavLink to='/addProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Add</NavLink>
     <NavLink to='/recommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Recommendations For Me</NavLink>
-    <NavLink to='/myRecommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My recommendations</NavLink>
+    <NavLink to='/myProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My recommendations</NavLink>
   </>
     const handleToggle = (e) => {
       if (e.target.checked) {

@@ -5,6 +5,8 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import AddProduct from "../components/AddProduct";
 import Queries from "../pages/Queries/Queries";
+import MyQuery from "../pages/MyQuery/MyQuery";
+import QueryDetails from "../pages/QueryDetails";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +35,15 @@ const router = createBrowserRouter([
           element: <Queries></Queries>,
           loader: () => fetch('http://localhost:5000/produces')
           
+        },
+        {
+          path:'/myProduct',
+          element: <MyQuery></MyQuery>
+        },
+        {
+          path:'/queriDetels/:id',
+          element: <QueryDetails></QueryDetails>,
+          loader: () => fetch('http://localhost:5000/produces')
         },
       ]
     },
