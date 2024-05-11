@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import AddProduct from "../components/AddProduct";
+import Queries from "../pages/Queries/Queries";
 
 const router = createBrowserRouter([
     {
@@ -12,7 +13,8 @@ const router = createBrowserRouter([
       children:[
         {
             path:'/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () => fetch('http://localhost:5000/produces')
         },
         {
           path:'/login',
@@ -25,6 +27,12 @@ const router = createBrowserRouter([
         {
           path:'/addProduct',
           element:<AddProduct></AddProduct>
+        },
+        {
+          path:'/queries',
+          element: <Queries></Queries>,
+          loader: () => fetch('http://localhost:5000/produces')
+          
         },
       ]
     },

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const NavBar = () => {
@@ -10,10 +10,11 @@ const NavBar = () => {
 
 
   const navLink = <>
-    <Link to='/'>Home</Link>
-    <Link to='/shop'>Shop</Link>
-    <Link to='/addProduct'>Add</Link>
-    <Link to='/'>Home</Link>
+    <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Home</NavLink>
+    <NavLink to='/queries' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Queries</NavLink>
+    <NavLink to='/addProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Add</NavLink>
+    <NavLink to='/recommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Recommendations For Me</NavLink>
+    <NavLink to='/myRecommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My recommendations</NavLink>
   </>
     const handleToggle = (e) => {
       if (e.target.checked) {
@@ -33,7 +34,7 @@ const NavBar = () => {
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </div>
-          <ul tabIndex={0} className="menu gap-y-3 menu-sm mt-3 dropdown-content z-[1]  shadow bg-[#2b2a29] rounded-md text-white  w-52">
+          <ul tabIndex={0} className="menu gap-y-3 menu-sm mt-3 dropdown-content  z-50 shadow bg-[#2b2a29] rounded-md text-white  w-52">
             {navLink}
           </ul>
         </div>
