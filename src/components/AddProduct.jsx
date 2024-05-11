@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../providers/AuthProvider";
+import { Link } from 'react-router-dom';
 // import { data } from "autoprefixer";
 const AddProduct = () => {
     const { user } = useContext(AuthContext)
@@ -64,7 +65,10 @@ const AddProduct = () => {
 
     return (
         <div className="bg-[#F4F3F0] p-24">
-            <h1 className="text-3xl font-bold">Add Product</h1>
+            <div className="flex justify-between pr-20">
+            <h1 className="text-3xl font-bold">Add Query</h1> 
+            <Link to='/myProduct' className='text-sky-600 font-serif'>My Query</Link>
+            </div>
             <form onSubmit={handleAddProduct}  >
                 {/* name & brand */}
                 <div className="md:flex mb-8 gap-x-5">
@@ -144,7 +148,7 @@ const AddProduct = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Product" className="btn btn-block hover:bg-[#D2B48C] text-xl text-[#331A15] bg-[#E3B77B]" />
+                <input type="submit" value="Add Query" className="btn btn-block hover:bg-[#9c8de8] text-xl text-[#331A15] bg-[#9c8de8]" />
             </form>
         </div>
     );

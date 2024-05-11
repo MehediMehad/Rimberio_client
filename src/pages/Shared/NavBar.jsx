@@ -10,19 +10,32 @@ const NavBar = () => {
 
 
   const navLink = <>
-    <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Home</NavLink>
-    <NavLink to='/queries' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Queries</NavLink>
-    <NavLink to='/addProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Add</NavLink>
-    <NavLink to='/recommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Recommendations For Me</NavLink>
-    <NavLink to='/myProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My recommendations</NavLink>
+
+    {
+      user ? <>
+        <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Home</NavLink>
+        <NavLink to='/queries' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Queries</NavLink>
+        <NavLink to='/addProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Add</NavLink>
+        <NavLink to='/recommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Recommendations For Me</NavLink>
+        <NavLink to='/myProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My Queries</NavLink>
+        <NavLink to='/v' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My recommendations</NavLink>
+
+      </> :
+        <>
+          <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Home</NavLink>
+          <NavLink to='/queries' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Queries</NavLink>
+          <NavLink to='/login' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Login</NavLink>
+        </>
+    }
+
   </>
-    const handleToggle = (e) => {
-      if (e.target.checked) {
-          setTheme('synthwave')
-      }
-      else {
-          setTheme('light')
-      }
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme('synthwave')
+    }
+    else {
+      setTheme('light')
+    }
   }
 
 
@@ -65,7 +78,7 @@ const NavBar = () => {
           {
             user ? <>
 
-              <div title={user?.displayName}  tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar lg:mr-10 bg-slate-900 ">
+              <div title={user?.displayName} tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar lg:mr-10 bg-slate-900 ">
                 <div title={user?.displayName} className="rounded-full ">
                   <img className="w-full" alt="Tailwind CSS Navbar component " src={user?.photoURL || 'https://i.ibb.co/p0T8mRj/Superhero-Cartoon-Design-2.jpg'} />
                 </div>

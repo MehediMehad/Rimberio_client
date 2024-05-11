@@ -7,7 +7,6 @@ const LatestSection = ({queries}) => {
     return (
         <div className="mx-auto ">
             <h1 className="text-4xl font-semibold text-center">LATEST PRODUCTS</h1>
-            <h1 className="text-4xl font-semibold text-center">LATEST PRODUCTS</h1>
             <div className="grid grid-cols-4 my-10 gap-5 mx-40">
                 {/* <div className="col-span-1">
                 <Card></Card>

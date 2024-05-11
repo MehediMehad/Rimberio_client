@@ -4,9 +4,10 @@ import Home from "../pages/Home/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import AddProduct from "../components/AddProduct";
-import Queries from "../pages/Queries/Queries";
 import MyQuery from "../pages/MyQuery/MyQuery";
 import QueryDetails from "../pages/QueryDetails";
+import PrivetRout from "../components/PrivetRout";
+import Queries from "../pages/Queries/Queries";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/addProduct',
-          element:<AddProduct></AddProduct>
+          element:<PrivetRout><AddProduct></AddProduct></PrivetRout>
         },
         {
           path:'/queries',
@@ -38,11 +39,11 @@ const router = createBrowserRouter([
         },
         {
           path:'/myProduct',
-          element: <MyQuery></MyQuery>
+          element: <PrivetRout><MyQuery></MyQuery></PrivetRout>
         },
         {
           path:'/queriDetels/:id',
-          element: <QueryDetails></QueryDetails>,
+          element: <PrivetRout><QueryDetails></QueryDetails></PrivetRout>,
           loader: () => fetch('http://localhost:5000/produces')
         },
       ]
