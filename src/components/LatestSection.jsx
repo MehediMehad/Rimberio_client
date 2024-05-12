@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 const LatestSection = ({queries}) => {
     console.log(queries);
+    let queriesRevers = queries.slice().reverse()
     return (
         <div className="mx-auto ">
             <h1 className="text-4xl font-semibold text-center">LATEST PRODUCTS</h1>
@@ -21,7 +22,7 @@ const LatestSection = ({queries}) => {
                 <Card></Card>
                 </div> */}
                 {
-                    queries.slice(0, 8).map(querie =><Card key={querie._id}
+                    queriesRevers.slice(0, 8).map(querie =><Card key={querie._id}
                     querie={querie}
                     ></Card>)
                 }

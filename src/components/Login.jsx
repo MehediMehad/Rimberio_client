@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
 import { AuthContext } from "../providers/AuthProvider";
 
 
 const Login = () => {
-    const { signInUser , googleLogIn } = useContext(AuthContext)
+    const { signInUser ,  googleLogIn } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
     // login
@@ -20,13 +20,19 @@ const Login = () => {
         signInUser(email, password)
         .then(result =>{
             console.log(result.user);
+            navigate('/')
         })
         .catch(error =>{
             console.log(error);
         })
         
     }
-
+    const handeleGoogleLogIng = () =>{
+        googleLogIn().then(
+            navigate('/')
+        )
+    }
+    
     return (
         <div className="card shrink-0 md:w-[448px] md:mt-28 mx-auto shadow-2xl bg-base-100">
             <h1 className="font-bold text-4xl mt-6 text-center">Log In</h1>
@@ -60,7 +66,7 @@ const Login = () => {
             </form>
             <div className="card-body -mt-12">
                 <div className="form-control ">
-                    <button onClick={() => googleLogIn()}
+                    <button onClick={() => handeleGoogleLogIng()}
                      className="btn bg-[#db4437] text-white text-base font-bold hover:bg-[#db4437] hover:scale-105">Login with Google</button>
                 </div>
             </div>

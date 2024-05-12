@@ -10,6 +10,7 @@ const AddProduct = () => {
     const { user } = useContext(AuthContext)
     console.log(user);
     const [publisDate, setPublisDate] = useState()
+    const [count, setCount] = useState(0)
   
     const handleAddProduct = e => {
         e.preventDefault()
@@ -54,6 +55,7 @@ const AddProduct = () => {
     .then(data => {
         console.log(data);
         if (data.insertedId) {
+            setCount(count + 1)
             Swal.fire({
                 title: 'Success!',
                 text: 'Added Data Database',
@@ -67,8 +69,8 @@ const AddProduct = () => {
     return (
         <div className="bg-[#F4F3F0] p-24">
             <div className="flex justify-between pr-20">
-            <h1 className="text-3xl font-bold">Add Query</h1> 
-            <Link to='/myProduct' className='text-sky-600 font-serif'>My Query</Link>
+            <h1 className="text-3xl font-bold">Add Query</h1> <span>{count}</span>
+            <Link to='/myProduct' className='text-blue-600 font-serif'>My Query :<span className='text-slate-900 ml-4 text-xl font-semibold'>{count}</span> </Link> 
             </div>
             <form onSubmit={handleAddProduct}  >
                 {/* name & brand */}
