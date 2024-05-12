@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import axios from "axios";
 
 const QueryDetails = () => {
 
@@ -9,10 +10,12 @@ const QueryDetails = () => {
 	const query = useLoaderData()
 	const { id } = useParams()
 	const item = query.find(item => item?._id == id)
-	const { name, brand, category, photo, productTitle, publisDate, addedUser } = item
+	const { _id, name, brand, category, photo, productTitle, publisDate, addedUser } = item
+    const remendProdutId = _id
+    console.log(item);
 
 
-    const handlerecommendation = e =>{
+    const handlerecommendation = async e =>{
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
@@ -22,20 +25,31 @@ const QueryDetails = () => {
 
 
         const recommendationInfo = {
+            remendProdutId,
             name,
             title,
             photo,
             reason,
+            addedUser,
             recommendedUser:{
                 email: user?.email,
-                addedUserName: user?.displayName,
-                addedUserPhoto: user?.photoURL,
+                recomedUser: user?.displayName,
+                recomedUserPhoto: user?.photoURL,
                 currentDate: new Date().toISOString(),
                 currentTime: new Date().toISOString(),
             }
 
         }
         console.log(recommendationInfo);
+        try{
+            const {data} = await axios.post('http://localhost:5000/recommend', recommendationInfo)
+            console.log(data)
+            
+        } catch (err) {
+            console.log(err);
+        }
+
+        document.getElementById('myForm').reset();
     }
 
 	useEffect(() => {
@@ -46,7 +60,8 @@ const QueryDetails = () => {
 
     return (
         <>
-        <div className="lg:flex lg:flex-col lg:mx-64 p-6 space-y-6 overflow-hidden mt-20 rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
+        <div className="md:flex">
+        <div className="lg:flex lg:flex-col lg:mx-10 p-6 space-y-6 overflow-hidden mt-20 rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
         <div className=" lg:flex lg:justify-evenly gap-x-5">
             <img src={photo} alt="" className=" object-cover shadow-xl  mb-4 lg:h-[400px] dark:bg-gray-500 " />
             <div className=" pt-8 md:space-y-6 space-y-3">
@@ -62,14 +77,14 @@ const QueryDetails = () => {
             </div>
         </div>
     </div>
-    {/*  */}
+
     <section className="max-w-4xl p-6 mx-auto bg-white rounded-md border dark:bg-gray-800 mt-10">
     <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Recommendation</h2>
 
-    <form onSubmit={handlerecommendation}>
+    <form id='myForm' onSubmit={handlerecommendation}>
         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <div>
-                <label className="text-gray-700 dark:text-gray-200" >Name</label>
+                <label className="text-gray-700 dark:text-gray-200" >Product Name</label>
                 <input name="name" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"/>
             </div>
 
@@ -94,6 +109,9 @@ const QueryDetails = () => {
         </div>
     </form>
 </section>
+    </div>
+    {/*  */}
+    
     
     </>
     );

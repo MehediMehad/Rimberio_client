@@ -12,11 +12,10 @@ const AuthProvider = ({children}) => {
 
 
     // create user
-     const createUser =(email, password) =>{
-
-        setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password)
-     }
+    const createUser = (email, password) =>{
+        setLoading(true)
+       return createUserWithEmailAndPassword(auth, email, password)
+    }
 
     //  login user
     const signInUser = (email, password) =>{
@@ -35,7 +34,10 @@ const AuthProvider = ({children}) => {
         setUser(null)
         return signOut(auth)
     }
-        
+    // updeteprofile
+    
+    
+
     // observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {

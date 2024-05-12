@@ -1,15 +1,14 @@
-import { updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
-import { NavLink, Navigate, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const {createUser, setUser} = useContext(AuthContext)
+    const {createUser} = useContext(AuthContext)
 
+    const navigate = useNavigate()
     const location = useLocation()
-    const from = location?.state || '/'
 
     const {
         register,
@@ -17,25 +16,14 @@ const Register = () => {
         // watch,
         formState: { errors },
     } = useForm()
-    console.log(errors);
     const handleRegister = (data) => {
         const { email, password, image, fullName } = data
-        console.log(image, email, password);
+        console.log(image, fullName, email, password);
         createUser(email, password)
-            .then((reuslt) => {
-                setUser({
-                    displayName: fullName, 
-                    photoURL: image
-                })
-                updateProfile(reuslt.user, {
-                    displayName: fullName, 
-                    photoURL: image
-                  })
-                    .then(() => {
-
-                        Navigate(from)
-                    })
-                    alert.success('Login Successful')
+            .then(result => {
+                navigate(location?.state ? location.state : '/')
+                alert('Register Successfully')
+                console.log(result);
             })
             .catch(() => {
                 alert.error("email-already-in-use")

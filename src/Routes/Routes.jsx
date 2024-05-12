@@ -8,11 +8,13 @@ import MyQuery from "../pages/MyQuery/MyQuery";
 import QueryDetails from "../pages/QueryDetails";
 import PrivetRout from "../components/PrivetRout";
 import Queries from "../pages/Queries/Queries";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element:<Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
