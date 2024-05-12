@@ -3,6 +3,7 @@ import Benner from "../../components/Benner";
 import Carousel from "../../components/Carousel";
 import Footer from "../../components/Footer";
 import LatestSection from "../../components/LatestSection";
+import BestSecsion from "../../components/BestSecsion";
 
 const Home = () => {
     const queries = useLoaderData()
@@ -14,6 +15,7 @@ const Home = () => {
             </div>
             <LatestSection queries={queries}
             ></LatestSection>
+            <BestSecsion></BestSecsion>
             <Footer></Footer>
         </div>
     );

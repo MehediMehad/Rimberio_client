@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
+import RecoCard from "../components/RecoCard";
 
 const QueryDetails = () => {
 
@@ -112,7 +113,7 @@ const QueryDetails = () => {
     </div>
     {/*  */}
     
-    
+    <RecoCard></RecoCard>
     </>
     );
 };
