@@ -4,11 +4,12 @@ import Home from "../pages/Home/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import AddProduct from "../components/AddProduct";
-import MyQuery from "../pages/MyQuery/MyQuery";
 import QueryDetails from "../pages/QueryDetails";
 import PrivetRout from "../components/PrivetRout";
 import Queries from "../pages/Queries/Queries";
 import ErrorPage from "../pages/ErrorPage";
+import MyRecommendations from "../components/MyRecommendations";
+import MyQaaary from "../pages/MyQuery/MyQaaary";
 
 const router = createBrowserRouter([
     {
@@ -40,13 +41,22 @@ const router = createBrowserRouter([
           
         },
         {
-          path:'/myProduct',
-          element: <PrivetRout><MyQuery></MyQuery></PrivetRout>
+          path:'/myQuary',
+          element: <PrivetRout><MyQaaary></MyQaaary></PrivetRout>,
+          loader: () => fetch('http://localhost:5000/produces'),
+
+
+        },
+        {
+          path:'/myRecommendations',
+          element: <PrivetRout><MyRecommendations></MyRecommendations></PrivetRout>,
+          loader: () => fetch('http://localhost:5000/recommend')
         },
         {
           path:'/queriDetels/:id',
           element: <PrivetRout><QueryDetails></QueryDetails></PrivetRout>,
-          loader: () => fetch('http://localhost:5000/produces')
+          loader: () => fetch('http://localhost:5000/produces'),
+          
         },
       ]
     },

@@ -17,8 +17,8 @@ const NavBar = () => {
         <NavLink to='/queries' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Queries</NavLink>
         <NavLink to='/addProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Add</NavLink>
         <NavLink to='/recommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Recommendations For Me</NavLink>
-        <NavLink to='/myProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My Queries</NavLink>
-        <NavLink to='/v' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My recommendations</NavLink>
+        <NavLink to='/myQuary' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My Queries</NavLink>
+        <NavLink to='/myRecommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My recommendations</NavLink>
 
       </> :
         <>
@@ -80,7 +80,7 @@ const NavBar = () => {
 
               <div title={user?.displayName} tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar lg:mr-10 bg-slate-900 ">
                 <div title={user?.displayName} className="rounded-full ">
-                  <img className="w-full" alt="Tailwind CSS Navbar component " src={user?.photoURL || 'https://i.ibb.co/p0T8mRj/Superhero-Cartoon-Design-2.jpg'} />
+                  <img className="w-full" alt="User Img" src={user?.photoURL || 'https://i.ibb.co/Dg4bHJv/default-user.png'} />
                 </div>
               </div>
               <ul tabIndex={0} className="menu menu-sm dropdown-content  mt-3 z-40 p-2 shadow bg-slate-900   rounded-box w-40 text-center">
@@ -90,7 +90,7 @@ const NavBar = () => {
               <>
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar lg:mr-10 bg-slate-700  ">
                   <div className=" rounded-full  ">
-                    <img className="" alt="" src='https://i.ibb.co/p0T8mRj/Superhero-Cartoon-Design-2.jpg' />
+                    <img className="" alt="" src='https://i.ibb.co/Dg4bHJv/default-user.png' />
                   </div>
                 </div>
                 <ul tabIndex={0} className="menu menu-sm dropdown-content text-white mt-3 bg-slate-900  z-40  p-2 shadow rounded-box text-center gap-y-3 w-40 ">

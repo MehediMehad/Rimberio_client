@@ -5,7 +5,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateProfile, setUser, user} = useContext(AuthContext)
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -21,7 +21,9 @@ const Register = () => {
         console.log(image, fullName, email, password);
         createUser(email, password)
             .then(result => {
-                navigate(location?.state ? location.state : '/')
+                updateProfile(fullName, image)
+                setUser({... user, photoURL: image, displayName: fullName})
+                navigate('/')
                 alert('Register Successfully')
                 console.log(result);
             })
@@ -125,7 +127,7 @@ const Register = () => {
                         </label>
                     </div>
                     <div className="form-control">
-                        <button className="btn bg-violet-900 text-white text-base font-bold hover:bg-violet-800 hover:scale-105">Register</button>
+                        <input type="submit" value="Register" className="btn bg-violet-900 text-white text-base font-bold hover:bg-violet-800 hover:scale-105"/>
                     </div>
                 </form>
 

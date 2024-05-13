@@ -44,7 +44,7 @@ const AddProduct = () => {
 
     
     // sand data
-    fetch('http://localhost:5000/produces', {
+    fetch('http://localhost:5000/Addproduces', {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -69,8 +69,8 @@ const AddProduct = () => {
     return (
         <div className="bg-[#F4F3F0] p-24">
             <div className="flex justify-between pr-20">
-            <h1 className="text-3xl font-bold">Add Query</h1> <span>{count}</span>
-            <Link to='/myProduct' className='text-blue-600 font-serif'>My Query :<span className='text-slate-900 ml-4 text-xl font-semibold'>{count}</span> </Link> 
+            <h1 className="text-3xl font-bold">Add Query</h1>
+            <Link to='/myQuary' className='text-blue-700 font-semibold'> My Query Page </Link> 
             </div>
             <form onSubmit={handleAddProduct}  >
                 {/* name & brand */}
@@ -78,7 +78,7 @@ const AddProduct = () => {
                     <div className="form-control md:w-1/2">
                         <label className="">
                             <div className="label">
-                                <span className="label-text text-lg font-semibold">Product Name</span>                        </div>
+                                <span className="label-text text-lg font-semibold">Query Name</span>                        </div>
                             <input type="text" name="name" required placeholder="Product Name" className="input input-bordered w-full" />
                         </label>
                     </div>
@@ -95,7 +95,7 @@ const AddProduct = () => {
                     <div className="form-control md:w-1/2">
                         <label className="">
                             <div className="label">
-                                <span className="label-text text-lg font-semibold">Product Title</span>                        </div>
+                                <span className="label-text text-lg font-semibold">Query Title</span>                        </div>
                             <input type="text" name="productTitle" required placeholder="Product Title" className="input input-bordered w-full" />
                         </label>
                     </div>
@@ -111,20 +111,9 @@ const AddProduct = () => {
                 <div className="md:flex mb-8 gap-x-5">
                     <div className="form-control md:w-1/2">
                         <label className="">
-                            <div className="form-control mt-12">
-                            <select
-                                name='category'
-                                id='category'
-                                className='p-3 rounded-md'
-                            >
-                                <option value='Men'>Men</option>
-                                <option value='Womans'>Womans</option>
-                                <option value='Kids'>Kids</option>
-                            </select>
-                            </div>
-                            {/* <div className="label">
+                            <div className="label">
                                 <span className="label-text text-lg font-semibold">Category</span>                        </div>
-                            <input type="text" name="category" required placeholder="Category" className="input input-bordered w-full" /> */}
+                            <input type="text" name="category" required placeholder="Category" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">

@@ -19,7 +19,7 @@ const BestSecsion = () => {
 					<input id="lastname" type="text" placeholder="Email address" className="w-full p-6 rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300" />
 				</div>
 			</form>
-				<button className="w-full py-2 font-semibold rounded bg-[#f59f4f] mt-7">Join </button>
+				<button className="w-full py-2 font-semibold rounded bg-[#f59f4f] mt-7">Join Rimberio</button>
 		</div>
 	</div>
 </section>
