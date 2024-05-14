@@ -1,23 +1,22 @@
+import axios from 'axios';
 import PropTypes from 'prop-types'; 
-import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 const RementFrom = ({recomat}) => {
 
      const {_id, name, recommendedUser, currentTime, title } = recomat
      console.log(recomat);
 
-     const handleDelete = _id =>{
-        fetch(`http://localhost:5000/recommend/${_id}`)
-        .then(res => res.json())
-        .then(data =>{
-            if (data.deletedCount > 0){
-                Swal.fire(
-                    'Deleted!',
-                    'Your recommission has been deleted',
-                    'success'
-                )
-            }
-        })
+     const handleDelete = async _id =>{
+        try{
+            const {data} = await axios.delete(`http://localhost:5000/deleteRecommend/${_id}`)
+            console.log(data);
+            toast.success('Delete Successful')
+        } catch(err) {
+            console.log(err.message)
+            toast.error(err.message)
+        }
+
      }
 
 
@@ -36,20 +35,12 @@ const RementFrom = ({recomat}) => {
                     </div>
                 </div>
             </td>
-            <td className="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-
-                    <h2 className="text-sm font-normal text-emerald-500">Active</h2>
-                </div>
-            </td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Design Director</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">authurmelo@example.com</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{title}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{new Date(recommendedUser.currentTime).toDateString()}</td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
                 <div className="flex items-center gap-x-2">
-                    <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60">Design</p>
-                    <p className="px-3 py-1 text-xs text-blue-500 rounded-full dark:bg-gray-800 bg-blue-100/60">Product</p>
-                    <p className="px-3 py-1 text-xs text-pink-500 rounded-full dark:bg-gray-800 bg-pink-100/60">Marketing</p>
+                    <p className="px-3 py-1 text-xs text-pink-500 rounded-full dark:bg-gray-800 bg-pink-100/60">{new Date(recommendedUser.currentTime).toLocaleDateString()}</p>
+                    <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60">{new Date(recommendedUser.currentTime).toLocaleTimeString()}</p>
                 </div>
             </td>
             <td className="px-2 py-4 text-sm whitespace-nowrap">

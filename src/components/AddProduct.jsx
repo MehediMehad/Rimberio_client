@@ -19,7 +19,7 @@ const AddProduct = () => {
         const brand = form.brand.value;
         const productTitle = form.productTitle.value;
         const reason = form.reason.value;
-        const category = form.category.value;
+        // const category = form.category.value;
         // const date = form.date.value;
         const photo = form.photo.value;
 
@@ -28,7 +28,6 @@ const AddProduct = () => {
             brand,
             productTitle,
             reason,
-            category,
             publisDate,
             photo,
             addedUser:
@@ -67,7 +66,7 @@ const AddProduct = () => {
 }
 
     return (
-        <div className="bg-[#F4F3F0] p-24">
+        <div className="bg-[#F4F3F0] px-24 pt-24 pb-10">
             <div className="flex justify-between pr-20">
             <h1 className="text-3xl font-bold">Add Query</h1>
             <Link to='/myQuary' className='text-blue-700 font-semibold'> My Query Page </Link> 
@@ -108,7 +107,7 @@ const AddProduct = () => {
                     </div>
                 </div>
                 {/* form category & date row*/}
-                <div className="md:flex mb-8 gap-x-5">
+                {/* <div className="md:flex mb-8 gap-x-5">
                     <div className="form-control md:w-1/2">
                         <label className="">
                             <div className="label">
@@ -129,7 +128,7 @@ const AddProduct = () => {
                             </div>
                         </label>
                     </div>
-                </div>
+                </div> */}
                 {/* Photo Url */}
                 <div className="md:flex mb-8">
                     <div className="form-control w-full">

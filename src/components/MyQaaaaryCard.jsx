@@ -50,12 +50,12 @@ const MyQaaaaryCard = ({item, setItems, items}) => {
                 </h2>
                 <p className="font-bold pl-2 mb-2"></p>
                 <div className="card-actions gap-0 justify-around items-center">
-                    <button onClick={() => handleDelete(_id)}
+                    <button onClick={() => handleDelete(_id )}
                         className=" mb-2 btn btn-sm right-2 text-white rounded-none w-1/3 bg-purple-600  hover:bg-[#491291]">Delete</button>
                     <Link to={`/updateQarry/${_id}`} className=" mb-2 btn btn-sm right-2 text-white rounded-none w-1/3 bg-secondary  hover:bg-[#9a1a7c]">
                         <button>Update</button>
                     </Link>
-                    <Link to={`/updateQarry/${_id}`} className=" mb-2 btn btn-sm right-2 text-white rounded-none w-1/3 bg-[#f29441]  hover:bg-[#7a3a05]">View Details</Link>
+                    <Link to={`/queriDetels/${_id}`} className=" mb-2 btn btn-sm right-2 text-white rounded-none w-1/3 bg-[#f29441]  hover:bg-[#7a3a05]">View Details</Link>
                 </div>
             </div>
         </div >
@@ -63,7 +63,7 @@ const MyQaaaaryCard = ({item, setItems, items}) => {
 };
 MyQaaaaryCard.propTypes  ={
     items: PropTypes.array,
-    setItems: PropTypes.array,
+    setItems: PropTypes.func,
     item: PropTypes.object
 
 }

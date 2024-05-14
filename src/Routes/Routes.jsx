@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         {
           path:'/myRecommendations',
           element: <PrivetRout><MyRecommendations></MyRecommendations></PrivetRout>,
-          loader: () => fetch('http://localhost:5000/recommend')
+          // loader: () => fetch('http://localhost:5000/recommend')
         },
         {
           path:'/queriDetels/:id',
@@ -60,9 +60,9 @@ const router = createBrowserRouter([
           
         },
         {
-          path:'/updateQarry/:id',
+          path:'updateQarry/:id',
           element: <PrivetRout><Updete></Updete></PrivetRout>,
-          loader: ({params}) => fetch(`http://localhost:5000/produces/${params.id}`),
+          loader: ({params}) => fetch(`http://localhost:5000/item/${params.id}`)
           
         },
       ]

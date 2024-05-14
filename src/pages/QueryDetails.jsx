@@ -8,12 +8,17 @@ const QueryDetails = () => {
 
     const {user} = useContext(AuthContext)
     
-	const query = useLoaderData()
+    const items = useLoaderData()
 	const { id } = useParams()
-	const item = query.find(item => item?._id == id)
-	const { _id, name, brand, category, photo, productTitle, publisDate, addedUser } = item
-    const remendProdutId = _id
-    console.log(item);
+	const item = items.find(item => item?._id == id)
+	const {  name, brand, category, photo, productTitle, publisDate, addedUser, remendProdutId  } = item
+
+	useEffect(() => {
+		window.scroll(0, 0)
+	}, [])
+	// const item = query.find(item => item?._id == id)
+	// const { _id, name, brand, category, photo, productTitle, publisDate, addedUser } = query
+
 
 
     const handlerecommendation = async e =>{
