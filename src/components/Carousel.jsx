@@ -40,7 +40,7 @@ export default function Carousel() {
         </SwiperSlide>
         <SwiperSlide>
         {/* <img className=' object-cover ' src={bgimg3} alt="" /> */}
-        <img className=' object-cover ' src={bgimg4} alt="" />
+        <img className=' object-cover ' src={bgimg2} alt="" />
         </SwiperSlide>
       </Swiper>
     </div>

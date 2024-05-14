@@ -10,6 +10,7 @@ import Queries from "../pages/Queries/Queries";
 import ErrorPage from "../pages/ErrorPage";
 import MyRecommendations from "../components/MyRecommendations";
 import MyQaaary from "../pages/MyQuery/MyQaaary";
+import Updete from "../components/Updete";
 
 const router = createBrowserRouter([
     {
@@ -56,6 +57,12 @@ const router = createBrowserRouter([
           path:'/queriDetels/:id',
           element: <PrivetRout><QueryDetails></QueryDetails></PrivetRout>,
           loader: () => fetch('http://localhost:5000/produces'),
+          
+        },
+        {
+          path:'/updateQarry/:id',
+          element: <PrivetRout><Updete></Updete></PrivetRout>,
+          loader: ({params}) => fetch(`http://localhost:5000/produces/${params.id}`),
           
         },
       ]
