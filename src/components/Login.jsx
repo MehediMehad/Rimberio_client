@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
 import { AuthContext } from "../providers/AuthProvider";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 
 const Login = () => {
@@ -11,6 +12,12 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
 
+ useEffect(() =>{
+    if (user) {
+        navigate('/')
+    }
+ },[navigate, user])
+ const from = location.state || '/'
 
     // login
     const handleLogIn = e =>{
@@ -23,7 +30,7 @@ const Login = () => {
         .then(result =>{
             toast.success('Login Successfully')
             console.log(result.user);
-            navigate('/')
+            navigate(form, {replace: true})
         })
         .catch(error =>{
             toast.error(error)
@@ -31,20 +38,20 @@ const Login = () => {
         })
         
     }
-    const handeleGoogleLogIng = () =>{
-        googleLogIn()
-        .then(
+    const handeleGoogleLogIng = async () =>{
+        try{
+            const result = await googleLogIn()
+            const {data} = await axios.post(`http://localhost:5000/jwt` ,{
+                email: result?.user?.email
+            },
+            { withCredentials:true }
+        )
+            console.log(data);
             toast.success('Login Successfully')
-        ).then(
-            
-            navigate('/')
-            .then(
-
-                setUser(user)
-            )
-        ).catch(err =>{
-            toast.error(err)
-        })
+            }catch(err){
+            console.log(err);
+            toast.error(err?.message)
+        }
     }
 
     return (
