@@ -1,22 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyQaaaaryCard from "../../components/MyQaaaaryCard";
+import axios from "axios";
 
 
 const MyQaaary = () => {
     const { user } = useContext(AuthContext)
-    const [loItems, setloItems] = useState([])
-    const [items, setItems] = useState(loItems)
-
-    // const qaraay = useLoaderData()
-    // const filt = qaraay.filter(p => p.addedUser.email === user.email)
+    const [items, setItems] = useState([])
+    
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/myProduces/${user?.email}`)
-        .then((res) => res.json())
-        .then((data) =>{
+        const getData = async () => {
+            const {data} = await axios (`http://localhost:5000/myProduces/${user?.email}`)
             setItems(data)
-        })
+        }
+        getData()
+
     },[user])
 
 

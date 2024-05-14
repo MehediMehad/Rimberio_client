@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const MyQaaaaryCard = ({item, setItems, items}) => {
   
     const {_id} = item
-    console.log(item);
 
     const handleDelete = _id => {
         Swal.fire({

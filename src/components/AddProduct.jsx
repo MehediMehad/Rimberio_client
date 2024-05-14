@@ -19,8 +19,6 @@ const AddProduct = () => {
         const brand = form.brand.value;
         const productTitle = form.productTitle.value;
         const reason = form.reason.value;
-        // const category = form.category.value;
-        // const date = form.date.value;
         const photo = form.photo.value;
 
         const productInfo = { 

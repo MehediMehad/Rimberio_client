@@ -11,6 +11,7 @@ import ErrorPage from "../pages/ErrorPage";
 import MyRecommendations from "../components/MyRecommendations";
 import MyQaaary from "../pages/MyQuery/MyQaaary";
 import Updete from "../components/Updete";
+import ForMe from "../pages/ForMe/ForMe";
 
 const router = createBrowserRouter([
     {
@@ -44,8 +45,6 @@ const router = createBrowserRouter([
         {
           path:'/myQuary',
           element: <PrivetRout><MyQaaary></MyQaaary></PrivetRout>,
-          loader: () => fetch('http://localhost:5000/produces'),
-
 
         },
         {
@@ -60,10 +59,14 @@ const router = createBrowserRouter([
           
         },
         {
-          path:'updateQarry/:id',
+          path:'/updateQarry/:id',
           element: <PrivetRout><Updete></Updete></PrivetRout>,
           loader: ({params}) => fetch(`http://localhost:5000/item/${params.id}`)
           
+        },
+        {
+          path:'forMe',
+          element:<ForMe></ForMe>,
         },
       ]
     },
