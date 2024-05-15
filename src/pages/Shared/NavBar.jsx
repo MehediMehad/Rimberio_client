@@ -15,7 +15,6 @@ const NavBar = () => {
       user ? <>
         <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Home</NavLink>
         <NavLink to='/queries' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Queries</NavLink>
-        <NavLink to='/addProduct' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Add</NavLink>
         <NavLink to='/forMe' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>Recommendations For Me</NavLink>
         <NavLink to='/myQuary' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My Queries</NavLink>
         <NavLink to='/myRecommendations' className={({ isActive }) => isActive ? 'font-bold text-red-500' : 'font-normal'}>My recommendations</NavLink>
@@ -41,7 +40,7 @@ const NavBar = () => {
 
 
   return (
-    <div className="navbar bg-[#638aff] text-white">
+    <div className="navbar flex bg-[#638aff] text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -1,6 +1,5 @@
 import Swal from 'sweetalert2'
 import { useContext, useState } from "react";
-import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../providers/AuthProvider";
@@ -64,7 +63,7 @@ const AddProduct = () => {
 }
 
     return (
-        <div className="bg-[#F4F3F0] px-24 pt-24 pb-10">
+        <div className="bg-[#F4F3F0] px-3 lg:px-24 pt-24 pb-10">
             <div className="flex justify-between pr-20">
             <h1 className="text-3xl font-bold">Add Query</h1>
             <Link to='/myQuary' className='text-blue-700 font-semibold'> My Query Page </Link> 

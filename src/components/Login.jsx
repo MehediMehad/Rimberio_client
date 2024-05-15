@@ -19,25 +19,26 @@ const Login = () => {
  },[navigate, user])
  const from = location.state || '/'
 
-    // login
-    const handleLogIn = e =>{
+    // login 
+    const handleLogIn = async e =>{
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-
-        signInUser(email, password)
-        .then(result =>{
-            toast.success('Login Successfully')
-            console.log(result.user);
-            navigate(form, {replace: true})
-        })
-        .catch(error =>{
-            toast.error(error)
-            console.log(error);
-        })
+        try{
+            const result = await signInUser(email, password)
+            const {data} = await axios.post(`http://localhost:5000/jwt` ,{
+                email: result?.user?.email
+            },
+            { withCredentials:true }
+        )
+        console.log(data);
+        }catch(err){
+            console.log(err);
+            toast.error(err?.message)
         
     }
+}
     const handeleGoogleLogIng = async () =>{
         try{
             const result = await googleLogIn()
@@ -95,5 +96,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;

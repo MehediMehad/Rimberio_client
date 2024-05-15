@@ -1,7 +1,8 @@
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import PropTypes from 'prop-types'; 
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext()
 const googleProvider = new GoogleAuthProvider();
@@ -30,8 +31,10 @@ const AuthProvider = ({children}) => {
         }
 
     // logout
-    const logOut = () =>{
+    const logOut = async () =>{
         setUser(null)
+        const {data} = await axios(`http://localhost:5000/logout`, {withCredentials:true})
+        console.log(data);
         return signOut(auth)
     }
     
@@ -52,8 +55,8 @@ const AuthProvider = ({children}) => {
     
     
     // updeteprofile
-    const updateProfile = (name, photo) =>{
-        return updateProfile(auth, user,{
+    const updateProfileUser = (name, photo) =>{
+        return updateProfile(auth.currentUser,{
             displayName: name,
             photoURL: photo,
 
@@ -67,7 +70,7 @@ const AuthProvider = ({children}) => {
         signInUser,
         logOut,
         googleLogIn,
-        updateProfile
+        updateProfileUser
     }
     return (
         <AuthContext.Provider value={userInfo} >

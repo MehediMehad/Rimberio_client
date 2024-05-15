@@ -3,10 +3,10 @@ import bgimg1 from '../assets/shoping.jpg'
 
 const Benner = () => {
     return (
-<section className="bg- dark:bg-gray-900 absolute md:-bottom-36">
+<section className="absolute md:-bottom-36">
     <div className=" px-6 md:py-10 mx-auto">
         <main className="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
-            <div className="absolute w-full -z-10 md:h-96 rounded-2xl bg-my-background object-cover" >
+            <div className="absolute w-full -z-10 md:h-96 rounded-2xl object-cover" style={{backgroundImage: 'url(https://i.ibb.co/HgmfBYK/black-friday-elements-assortment.jpg)'}} >
 
             </div>
             
@@ -15,8 +15,8 @@ const Benner = () => {
                 
                 <div className="mt-2 md:mx-6">
                     <div>
-                        <p className="text-xl font-medium tracking-tight ">Unlock Your Style </p>
-                        <p className="text-blue-200 ">Explore Fashions Latest Trends & Expert Advice!</p>
+                        <p className="text-4xl mb-3 font-medium tracking-tight ">Unlock Your Style </p>
+                        <p className="text-2xl">Buy verified products of your choice and also help others with real information</p>
                     </div>
 
                     <p className="mt-4 text-lg leading-relaxed  md:text-xl"> Welcome to our fashion haven, where every click unveils a world of style, trends, and insider tips! Dive into a realm where your wardrobe dreams come to life with the latest fashion buzz and must-have essentials.</p>

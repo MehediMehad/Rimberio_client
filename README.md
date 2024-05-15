@@ -1,8 +1,30 @@
-# React + Vite
+## Art Lab
+### Art Lab [@Assignment_category_0009]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Live link: https://assignment-ten-3e753.web.app
 
-Currently, two official plugins are available:
+### Packages
+- [@React-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)
+- [@React Awesome reveal](https://www.npmjs.com/package/react-awesome-reveal)
+- [@sweetalert2](https://sweetalert2.github.io/)
+- [@React Toastify](https://www.npmjs.com/package/react-toastify)
+- [@react-helmet-async](https://www.npmjs.com/package/react-helmet-async)
+- [@Firebase](https://firebase.google.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+### Features
+- If the user has any questions, they can do 
+- Other users can comment to recommend him according to this question
+- Fast-loading.
+- Modern Design
+- He can also see other people's questions
+- User can update his product
+- Tailwind Css Framework
+- DAnd he can answer others' questions
+
+### TEMPLATES INCLUDE
+- Home
+- Post Detail
+- Coming Soon
+- 404 
+- Team Section

@@ -1,14 +1,15 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import toast from "react-hot-toast";
+import axios from "axios";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const {createUser, updateProfile, setUser, user} = useContext(AuthContext)
+    const {createUser, updateProfileUser, setUser, user} = useContext(AuthContext)
 
     const navigate = useNavigate()
-    const location = useLocation()
 
     const {
         register,
@@ -16,20 +17,26 @@ const Register = () => {
         // watch,
         formState: { errors },
     } = useForm()
-    const handleRegister = (data) => {
+    const handleRegister = async (data) => {
         const { email, password, image, fullName } = data
         console.log(image, fullName, email, password);
-        createUser(email, password)
-            .then(result => {
-                updateProfile(fullName, image)
-                setUser({... user, photoURL: image, displayName: fullName})
-                navigate('/')
-                alert('Register Successfully')
-                console.log(result);
-            })
-            .catch(() => {
-                alert.error("email-already-in-use")
-            })
+        try{
+            const result = await createUser(email, password)
+            await updateProfileUser(fullName, image)
+            setUser({... user, photoURL: image, displayName: fullName})
+            const {data} = await axios.post (`http://localhost:5000/jwt`,
+            {
+                email: result?.user?.email
+            },
+            { withCredentials:true }
+        )
+        console.log(data);
+        navigate('/')
+        toast.success('Signup Successful')
+        }catch(err){
+            console.log(err)
+            toast.error(err?.message)
+        }
     }
 
     return (
