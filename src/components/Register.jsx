@@ -24,7 +24,7 @@ const Register = () => {
             const result = await createUser(email, password)
             await updateProfileUser(fullName, image)
             setUser({... user, photoURL: image, displayName: fullName})
-            const {data} = await axios.post (`http://localhost:5000/jwt`,
+            const {data} = await axios.post (`assignment-eleven-server-chi-two.vercel.app/jwt`,
             {
                 email: result?.user?.email
             },

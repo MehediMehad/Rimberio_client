@@ -23,7 +23,7 @@ const QueryDetails = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`http://localhost:5000/myProduces/${addedUser.email}`)
+            const { data } = await axios(`assignment-eleven-server-chi-two.vercel.app/myProduces/${addedUser.email}`)
             setRecomentData(data)
         }
         getData()
@@ -58,7 +58,7 @@ const QueryDetails = () => {
         }
         console.log(recommendationInfo);
         try{
-            const {data} = await axios.post('http://localhost:5000/recommend', recommendationInfo)
+            const {data} = await axios.post('assignment-eleven-server-chi-two.vercel.app/recommend', recommendationInfo)
             console.log(data)
             
         } catch (err) {

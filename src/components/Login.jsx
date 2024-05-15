@@ -27,7 +27,7 @@ const Login = () => {
         const password = form.password.value;
         try{
             const result = await signInUser(email, password)
-            const {data} = await axios.post(`http://localhost:5000/jwt` ,{
+            const {data} = await axios.post(`assignment-eleven-server-chi-two.vercel.app/jwt` ,{
                 email: result?.user?.email
             },
             { withCredentials:true }
@@ -42,7 +42,7 @@ const Login = () => {
     const handeleGoogleLogIng = async () =>{
         try{
             const result = await googleLogIn()
-            const {data} = await axios.post(`http://localhost:5000/jwt` ,{
+            const {data} = await axios.post(`assignment-eleven-server-chi-two.vercel.app/jwt` ,{
                 email: result?.user?.email
             },
             { withCredentials:true }

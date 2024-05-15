@@ -12,13 +12,13 @@ const MyRecommendations = () => {
     },[user])
 
     const getData = async () =>{
-        const {data} = await axios(`http://localhost:5000/recommend/${user.email}` , {withCredentials: true})
+        const {data} = await axios(`assignment-eleven-server-chi-two.vercel.app/recommend/${user.email}` , {withCredentials: true})
         setRecomend(data)
     }
 
     const handleDelete = async _id =>{
         try{
-            const {data} = await axios.delete(`http://localhost:5000/deleteRecommend/${_id}`)
+            const {data} = await axios.delete(`assignment-eleven-server-chi-two.vercel.app/deleteRecommend/${_id}`)
             console.log(data);
             toast.success('Delete Successful')
             getData()
