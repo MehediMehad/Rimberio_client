@@ -1,9 +1,6 @@
-import { Link } from "react-router-dom";
 
 const QuerisCategory = ({queries, setNeed}) => {
     console.log(queries ,'from men');
-
-
 
     const handleMen = ()=>{
         setNeed('men')
