@@ -12,7 +12,7 @@ const MyQaaary = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`assignment-eleven-server-chi-two.vercel.app/myProduces/${user?.email}`)
+            const { data } = await axios(`https://assignment-eleven-server-chi-two.vercel.app/myProduces/${user?.email}`)
             setItems(data)
         }
         getData()

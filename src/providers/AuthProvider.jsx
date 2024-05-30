@@ -33,7 +33,7 @@ const AuthProvider = ({children}) => {
     // logout
     const logOut = async () =>{
         setUser(null)
-        const {data} = await axios(`assignment-eleven-server-chi-two.vercel.app/logout`, {withCredentials:true})
+        const {data} = await axios(`https://assignment-eleven-server-chi-two.vercel.app/logout`, {withCredentials:true})
         console.log(data);
         return signOut(auth)
     }

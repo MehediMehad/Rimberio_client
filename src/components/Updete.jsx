@@ -48,7 +48,7 @@ const Updete = () => {
             
         }
         try{
-            const {data} = await axios.put(`assignment-eleven-server-chi-two.vercel.app/item/${_id}`,
+            const {data} = await axios.put(`https://assignment-eleven-server-chi-two.vercel.app/item/${_id}`,
                 updatedItem
             )
             console.log(data);

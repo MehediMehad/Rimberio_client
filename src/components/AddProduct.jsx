@@ -40,7 +40,7 @@ const AddProduct = () => {
 
     
     // sand data
-    fetch('assignment-eleven-server-chi-two.vercel.app/Addproduces', {
+    fetch('https://assignment-eleven-server-chi-two.vercel.app/Addproduces', {
         method: "POST",
         headers: {
             'content-type': 'application/json'

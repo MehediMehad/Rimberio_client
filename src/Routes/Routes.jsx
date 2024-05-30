@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         {
             path:'/',
             element: <Home></Home>,
-            loader: () => fetch('assignment-eleven-server-chi-two.vercel.app/produces')
+            loader: () => fetch('https://assignment-eleven-server-chi-two.vercel.app/produces')
         },
         {
           path:'/login',
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         {
           path:'/queries',
           element: <Queries></Queries>,
-          loader: () => fetch('assignment-eleven-server-chi-two.vercel.app/produces')
+          loader: () => fetch('https://assignment-eleven-server-chi-two.vercel.app/produces')
           
         },
         {
@@ -50,24 +50,24 @@ const router = createBrowserRouter([
         {
           path:'/myRecommendations',
           element: <PrivetRout><MyRecommendations></MyRecommendations></PrivetRout>,
-          // loader: () => fetch('assignment-eleven-server-chi-two.vercel.app/recommend')
+          // loader: () => fetch('https://assignment-eleven-server-chi-two.vercel.app/recommend')
         },
         {
           path:'/queriDetels/:id',
           element: <PrivetRout><QueryDetails></QueryDetails></PrivetRout>,
-          loader: () => fetch('assignment-eleven-server-chi-two.vercel.app/produces'),
+          loader: () => fetch('https://assignment-eleven-server-chi-two.vercel.app/produces'),
           
         },
         {
           path:'/updateQarry/:id',
           element: <PrivetRout><Updete></Updete></PrivetRout>,
-          loader: ({params}) => fetch(`assignment-eleven-server-chi-two.vercel.app/item/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-eleven-server-chi-two.vercel.app/item/${params.id}`)
           
         },
         {
           path:'forMe',
           element:<PrivetRout><ForMe></ForMe> </PrivetRout>,
-          loader: () => fetch('assignment-eleven-server-chi-two.vercel.app/recommend'),
+          loader: () => fetch('https://assignment-eleven-server-chi-two.vercel.app/recommend'),
         },
       ]
     },

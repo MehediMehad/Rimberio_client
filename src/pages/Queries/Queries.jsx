@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import QuerisCategory from "./QuerisCategory/QuerisCategory";
 
 const Queries = () => {
   const queries = useLoaderData()
@@ -20,19 +21,10 @@ const Queries = () => {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
       </label>
       </form>
+         <QuerisCategory queries={queries} 
+         setNeed={setNeed}
+         ></QuerisCategory>
       <div className="grid grid-cols-4 my-10 gap-5 lg:mx-40">
-        {/* <div className="col-span-1">
-                <Card></Card>
-                </div>
-                <div className="col-span-1">
-                <Card></Card>
-                </div>
-                <div className="col-span-1">
-                <Card></Card>
-                </div>
-                <div className="col-span-1">
-                <Card></Card>
-                </div> */}
         {
           queries.filter((product) => product.name.toLowerCase().includes(need)).map(p => <div key={p._id} className="card card-compact bg-base-100 shadow-xl p-x-5 col-span-4 md:col-span-2 lg:col-span-1 ">
             <figure><img className="h-[300px]  object-cover " src={p.photo} alt="Shoes" /></figure>

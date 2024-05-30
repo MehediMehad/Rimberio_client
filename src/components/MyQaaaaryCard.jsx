@@ -18,7 +18,7 @@ const MyQaaaaryCard = ({item, setItems, items}) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`assignment-eleven-server-chi-two.vercel.app/deleteProduces/${_id}`,{
+                fetch(`https://assignment-eleven-server-chi-two.vercel.app/deleteProduces/${_id}`,{
                     method: 'DELETE'
                 })
                 .then(res => res.json())
